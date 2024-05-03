@@ -1,8 +1,12 @@
 #include <iostream>
-#include "User.h"
+#include "user.h"
 
 // TODO: Implement the non-member function + operator overload here!
-
+User&& operator+(User & lef,User & rig){
+    lef.friends.insert(rig.name);
+    rig.friends.insert(lef.name);
+    return std::move(lef);
+}
 
 void printFriends(const User& user) {
     std::cout << user.getName() << " is friends with: " << std::endl;
@@ -17,7 +21,7 @@ int main() {
     User bob("Bob");
     User charlie("Charlie");
     User dave("Dave");
-
+    
     // make them friends
     alice = alice + bob;
     alice = alice + charlie;

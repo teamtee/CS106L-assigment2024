@@ -6,7 +6,11 @@
 
 User::User(std::string name) {
 // TODO: Implement the additional constructor here!
+    this->name = name;
 
+}
+bool User::operator<(const User & other) const{
+    return this->name > other.name;
 }
 
 std::string User::getName() const {
